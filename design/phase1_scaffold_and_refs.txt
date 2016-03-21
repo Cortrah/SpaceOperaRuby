@@ -22,7 +22,7 @@ rails g scaffold PositionState name:string position_id:integer turn_id:integer s
   belongs_to :Turn
   has_many :Regions
 
-rails g scaffold Region name:string code:string row:integer  col:integer environment_id:integer position_state_id:integer map_id:integer money:integer materials:integer research:integer
+rails g scaffold Region name:string code:string row:integer  col:integer environment_id:integer position_state_id:integer map_id:integer money:integer materials:integer research:integer is_secret:boolean
   has_one :Environment
   belongs_to :Map
   belongs_to :PositionState
@@ -44,3 +44,5 @@ rails g scaffold RegionsBorder name:string source_id:integer sink_id:integer bor
   has_one :BorderType
 
 rails g scaffold BorderType name:string code:string description:text is_directional:boolean
+
+rails g scaffold Race name:string code:string description:text

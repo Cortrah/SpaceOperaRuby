@@ -11,10 +11,135 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160320192750) do
+ActiveRecord::Schema.define(version: 20160321152324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "areas", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.string   "description"
+    t.integer  "map_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "border_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.text     "description"
+    t.boolean  "is_directional"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "environment_types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "environments", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.integer  "environment_type_id"
+    t.text     "description"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "next_tick"
+    t.integer  "map_id"
+    t.integer  "current_turn_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "maps", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.integer  "rows"
+    t.integer  "cols"
+    t.integer  "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "position_states", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "position_id"
+    t.integer  "turn_id"
+    t.integer  "score"
+    t.integer  "trade_value"
+    t.integer  "money_income"
+    t.integer  "materials_income"
+    t.integer  "research_income"
+    t.integer  "saved_money"
+    t.integer  "saved_materials"
+    t.integer  "saved_research"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  create_table "positions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.integer  "color"
+    t.integer  "first_turn"
+    t.integer  "last_turn"
+    t.boolean  "is_secret"
+    t.integer  "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "races", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.text     "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "regions", force: :cascade do |t|
+    t.string   "name"
+    t.string   "code"
+    t.integer  "row"
+    t.integer  "col"
+    t.integer  "environment_id"
+    t.integer  "position_state_id"
+    t.integer  "map_id"
+    t.integer  "money"
+    t.integer  "materials"
+    t.integer  "research"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.boolean  "is_secret"
+  end
+
+  create_table "regions_borders", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "source_id"
+    t.integer  "sink_id"
+    t.integer  "border_type_id"
+    t.boolean  "is_secret"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "turns", force: :cascade do |t|
+    t.integer  "number"
+    t.text     "introduction"
+    t.text     "results"
+    t.integer  "game_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

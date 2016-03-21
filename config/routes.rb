@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :races
   resources :border_types
   resources :regions_borders
   resources :areas
