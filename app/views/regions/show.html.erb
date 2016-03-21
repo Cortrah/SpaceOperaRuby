@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @region.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @region.code %>
+</p>
+
+<p>
+  <strong>Row:</strong>
+  <%= @region.row %>
+</p>
+
+<p>
+  <strong>Col:</strong>
+  <%= @region.col %>
+</p>
+
+<p>
+  <strong>Environment:</strong>
+  <%= @region.environment_id %>
+</p>
+
+<p>
+  <strong>Position state:</strong>
+  <%= @region.position_state_id %>
+</p>
+
+<p>
+  <strong>Map:</strong>
+  <%= @region.map_id %>
+</p>
+
+<p>
+  <strong>Money:</strong>
+  <%= @region.money %>
+</p>
+
+<p>
+  <strong>Materials:</strong>
+  <%= @region.materials %>
+</p>
+
+<p>
+  <strong>Research:</strong>
+  <%= @region.research %>
+</p>
+
+<%= link_to 'Edit', edit_region_path(@region) %> |
+<%= link_to 'Back', regions_path %>

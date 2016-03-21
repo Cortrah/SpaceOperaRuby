@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @border_type.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @border_type.code %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @border_type.description %>
+</p>
+
+<p>
+  <strong>Is directional:</strong>
+  <%= @border_type.is_directional %>
+</p>
+
+<%= link_to 'Edit', edit_border_type_path(@border_type) %> |
+<%= link_to 'Back', border_types_path %>

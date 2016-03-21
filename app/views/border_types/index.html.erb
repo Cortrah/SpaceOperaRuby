@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Border Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Description</th>
+      <th>Is directional</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @border_types.each do |border_type| %>
+      <tr>
+        <td><%= border_type.name %></td>
+        <td><%= border_type.code %></td>
+        <td><%= border_type.description %></td>
+        <td><%= border_type.is_directional %></td>
+        <td><%= link_to 'Show', border_type %></td>
+        <td><%= link_to 'Edit', edit_border_type_path(border_type) %></td>
+        <td><%= link_to 'Destroy', border_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Border type', new_border_type_path %>

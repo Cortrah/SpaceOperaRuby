@@ -1,0 +1,21 @@
+<%= simple_form_for(@position_state) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :position_id %>
+    <%= f.input :turn_id %>
+    <%= f.input :score %>
+    <%= f.input :trade_value %>
+    <%= f.input :money_income %>
+    <%= f.input :materials_income %>
+    <%= f.input :research_income %>
+    <%= f.input :saved_money %>
+    <%= f.input :saved_materials %>
+    <%= f.input :saved_research %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

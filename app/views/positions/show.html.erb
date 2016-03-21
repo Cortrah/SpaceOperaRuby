@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @position.name %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @position.code %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @position.color %>
+</p>
+
+<p>
+  <strong>First turn:</strong>
+  <%= @position.first_turn %>
+</p>
+
+<p>
+  <strong>Last turn:</strong>
+  <%= @position.last_turn %>
+</p>
+
+<p>
+  <strong>Is secret:</strong>
+  <%= @position.is_secret %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @position.game_id %>
+</p>
+
+<%= link_to 'Edit', edit_position_path(@position) %> |
+<%= link_to 'Back', positions_path %>

@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @position_state.name %>
+</p>
+
+<p>
+  <strong>Position:</strong>
+  <%= @position_state.position_id %>
+</p>
+
+<p>
+  <strong>Turn:</strong>
+  <%= @position_state.turn_id %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @position_state.score %>
+</p>
+
+<p>
+  <strong>Trade value:</strong>
+  <%= @position_state.trade_value %>
+</p>
+
+<p>
+  <strong>Money income:</strong>
+  <%= @position_state.money_income %>
+</p>
+
+<p>
+  <strong>Materials income:</strong>
+  <%= @position_state.materials_income %>
+</p>
+
+<p>
+  <strong>Research income:</strong>
+  <%= @position_state.research_income %>
+</p>
+
+<p>
+  <strong>Saved money:</strong>
+  <%= @position_state.saved_money %>
+</p>
+
+<p>
+  <strong>Saved materials:</strong>
+  <%= @position_state.saved_materials %>
+</p>
+
+<p>
+  <strong>Saved research:</strong>
+  <%= @position_state.saved_research %>
+</p>
+
+<%= link_to 'Edit', edit_position_state_path(@position_state) %> |
+<%= link_to 'Back', position_states_path %>

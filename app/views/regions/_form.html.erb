@@ -1,0 +1,20 @@
+<%= simple_form_for(@region) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :code %>
+    <%= f.input :row %>
+    <%= f.input :col %>
+    <%= f.input :environment_id %>
+    <%= f.input :position_state_id %>
+    <%= f.input :map_id %>
+    <%= f.input :money %>
+    <%= f.input :materials %>
+    <%= f.input :research %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

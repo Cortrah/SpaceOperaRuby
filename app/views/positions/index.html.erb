@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Positions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Code</th>
+      <th>Color</th>
+      <th>First turn</th>
+      <th>Last turn</th>
+      <th>Is secret</th>
+      <th>Game</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @positions.each do |position| %>
+      <tr>
+        <td><%= position.name %></td>
+        <td><%= position.code %></td>
+        <td><%= position.color %></td>
+        <td><%= position.first_turn %></td>
+        <td><%= position.last_turn %></td>
+        <td><%= position.is_secret %></td>
+        <td><%= position.game_id %></td>
+        <td><%= link_to 'Show', position %></td>
+        <td><%= link_to 'Edit', edit_position_path(position) %></td>
+        <td><%= link_to 'Destroy', position, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Position', new_position_path %>

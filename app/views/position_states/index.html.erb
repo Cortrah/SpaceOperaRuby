@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Position States</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Position</th>
+      <th>Turn</th>
+      <th>Score</th>
+      <th>Trade value</th>
+      <th>Money income</th>
+      <th>Materials income</th>
+      <th>Research income</th>
+      <th>Saved money</th>
+      <th>Saved materials</th>
+      <th>Saved research</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @position_states.each do |position_state| %>
+      <tr>
+        <td><%= position_state.name %></td>
+        <td><%= position_state.position_id %></td>
+        <td><%= position_state.turn_id %></td>
+        <td><%= position_state.score %></td>
+        <td><%= position_state.trade_value %></td>
+        <td><%= position_state.money_income %></td>
+        <td><%= position_state.materials_income %></td>
+        <td><%= position_state.research_income %></td>
+        <td><%= position_state.saved_money %></td>
+        <td><%= position_state.saved_materials %></td>
+        <td><%= position_state.saved_research %></td>
+        <td><%= link_to 'Show', position_state %></td>
+        <td><%= link_to 'Edit', edit_position_state_path(position_state) %></td>
+        <td><%= link_to 'Destroy', position_state, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Position state', new_position_state_path %>

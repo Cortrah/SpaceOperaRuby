@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @regions_border.name %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @regions_border.source_id %>
+</p>
+
+<p>
+  <strong>Sink:</strong>
+  <%= @regions_border.sink_id %>
+</p>
+
+<p>
+  <strong>Border type:</strong>
+  <%= @regions_border.border_type_id %>
+</p>
+
+<p>
+  <strong>Is secret:</strong>
+  <%= @regions_border.is_secret %>
+</p>
+
+<%= link_to 'Edit', edit_regions_border_path(@regions_border) %> |
+<%= link_to 'Back', regions_borders_path %>

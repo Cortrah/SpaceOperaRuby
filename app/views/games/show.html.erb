@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @game.name %>
+</p>
+
+<p>
+  <strong>Next tick:</strong>
+  <%= @game.next_tick %>
+</p>
+
+<p>
+  <strong>Map:</strong>
+  <%= @game.map_id %>
+</p>
+
+<p>
+  <strong>Current turn:</strong>
+  <%= @game.current_turn_id %>
+</p>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>

@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Regions Borders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Source</th>
+      <th>Sink</th>
+      <th>Border type</th>
+      <th>Is secret</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @regions_borders.each do |regions_border| %>
+      <tr>
+        <td><%= regions_border.name %></td>
+        <td><%= regions_border.source_id %></td>
+        <td><%= regions_border.sink_id %></td>
+        <td><%= regions_border.border_type_id %></td>
+        <td><%= regions_border.is_secret %></td>
+        <td><%= link_to 'Show', regions_border %></td>
+        <td><%= link_to 'Edit', edit_regions_border_path(regions_border) %></td>
+        <td><%= link_to 'Destroy', regions_border, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Regions border', new_regions_border_path %>

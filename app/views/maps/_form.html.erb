@@ -1,0 +1,15 @@
+<%= simple_form_for(@map) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :code %>
+    <%= f.input :rows %>
+    <%= f.input :cols %>
+    <%= f.input :game_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

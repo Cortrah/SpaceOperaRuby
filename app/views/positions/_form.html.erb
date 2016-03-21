@@ -1,0 +1,17 @@
+<%= simple_form_for(@position) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :code %>
+    <%= f.input :color %>
+    <%= f.input :first_turn %>
+    <%= f.input :last_turn %>
+    <%= f.input :is_secret %>
+    <%= f.input :game_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
