@@ -18,7 +18,7 @@ development:
   encoding: unicode
   database: SpaceOperaFiction_development
   pool:     5
-  username: SpaceOperaFiction
+  username: Cort
   password:
   template: template0
 
@@ -46,7 +46,7 @@ test:
   encoding: unicode
   database: SpaceOperaFiction_test
   pool:     5
-  username: SpaceOperaFiction
+  username: Cort
   password:
   template: template0
 
@@ -56,6 +56,6 @@ production:
   encoding: unicode
   database: SpaceOperaFiction_production
   pool:     5
-  username: SpaceOperaFiction
+  username: Cort
   password:
   template: template0

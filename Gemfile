@@ -4,6 +4,8 @@ gem 'rails', '4.2.5.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
+gem 'turbolinks'
+
 gem 'jbuilder', '~> 2.0'
 group :development, :test do
   gem 'byebug'
@@ -18,7 +20,13 @@ gem 'devise_invitable'
 gem 'high_voltage'
 gem 'pg'
 gem 'pundit'
+gem 'toastr-rails'
 gem 'simple_form'
+
+gem 'raphael-rails', '~> 2.1.2'
+gem 'backbone-on-rails'
+gem 'greensock-rails', '~> 1.18.0.1'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

@@ -1,0 +1,48 @@
+rails g scaffold Game name:string  next_tick:datetime  map_id:integer current_turn:integer
+  has_one :Map
+  has_many :Turns
+  has_many :Positions
+
+rails g scaffold Map name:string code:string rows:integer  cols:integer game_id:integer
+  has_many :Areas
+  has_many :Regions
+  belongs_to :Game
+
+rails g scaffold Turn number:integer introduction:text results:text game_id:integer
+  has_many :Positions
+  belongs_to :Game
+
+rails g scaffold Position name:string code:string color:integer first_turn:integer  last_turn:integer  is_secret:boolean  game_id:integer
+  has_many :PositionStates
+  has_one :CurrentTurn
+  belongs_to :Game
+
+rails g scaffold Region name:string code:string row:integer  col:integer environment_id:integer position_id:integer map_id:integer money:integer materials:integer research:integer is_secret:boolean
+  has_one :Environment
+  belongs_to :Map
+  belongs_to :Position
+  has_many :RegionsBorders
+  has_many :Areas
+
+ rails g scaffold Area name:string code:string description:string map_id:integer
+   has_many :Regions
+   belongs_to :Map
+
+rails g scaffold PositionState name:string position_id:integer turn_id:integer score:integer trade_value:integer money_income:integer materials_income:integer research_income:integer saved_money:integer saved_materials:integer saved_research:integer
+  belongs_to :Position
+  belongs_to :Turn
+  has_many :Regions
+
+rails g scaffold Environment name:string code:string environment_type_id:integer description:text
+  belongs_to :EnvironmentType
+
+rails g scaffold EnvironmentType name:string code:string description:text
+
+rails g scaffold RegionsBorder name:string source_id:integer sink_id:integer border_type_id:integer is_secret:boolean
+  belongs_to :source, :class_name => "Region"
+  belongs_to :sink, :class_name => "Region"
+  has_one :BorderType
+
+rails g scaffold BorderType name:string code:string description:text is_directional:boolean
+
+rails g scaffold Race name:string code:string description:text
