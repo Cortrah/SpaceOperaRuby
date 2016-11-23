@@ -1,0 +1,82 @@
+rails g scaffold Game name:string  next_tick:datetime  current_turn:integer status:string
+  has_many :Maps
+  has_many :Turns
+  has_many :Positions
+
+rails g scaffold Map name:string code:string height:integer  width:integer center_x:integer center_y:integer bg:string game_id:integer
+  has_many :Regions
+  has_many :Areas
+  has_many :RegionsBorders
+  has_many :BorderTypes
+  has_many :EnvironmentTypes
+  belongs_to :Game
+
+rails g scaffold Turn name:string number:integer introduction:text results:text game_id:integer
+  has_many :PositionActions
+  has_many :UnitActions
+  belongs_to :Game
+
+rails g scaffold Position name:string code:string color:integer energy:integer materials:integer research:integer money_income:integer materials_income:integer research_income:integer first_turn:integer  last_turn:integer  current_turn_id:integer is_secret:boolean game_id:integer user_id:integer species_id:integer faction_id:integer
+  has_many :Regions
+  has_many :TradePartners, :class_name => "Position"
+  has_many :Allies, :class_name => "Position"
+  has_many :Units
+  has_many :Items
+  belongs_to :Species
+  belongs_to :Faction
+  belongs_to :Game
+  belongs_to :User
+  belongs_to :Turn
+
+rails g scaffold Region name:string code:string row:integer  col:integer environment_type_id:integer controling_position_id:integer inhabiting_species_id:integer map_id:integer energy:integer materials:integer research:integer is_secret:boolean
+  has_one :EnvironmentType
+  has_many :Features
+  has_many :Locations
+  belongs_to :Map
+  belongs_to :Position
+  has_one :Facing
+  has_many :Adjacencies
+  has_many :RegionsBorders
+  has_many :Units
+
+rails g scaffold EnvironmentType name:string code:string description:text effect:text
+
+rails g scaffold RegionsBorder name:string code:string source_region_id:integer sink_region_id:integer border_type_id:integer is_secret:boolean
+  belongs_to :source, :class_name => "Region"
+  belongs_to :sink, :class_name => "Region"
+  has_one :BorderType
+
+rails g scaffold BorderType name:string code:string description:text is_directional:boolean
+
+rails g scaffold Species name:string code:string description:text effect:text
+
+rails g scaffold Faction name:string code:string description:text effect:text
+
+rails g scaffold Item name:string code:string description:text effect:text
+
+rails g scaffold Unit name:string code:string description:text effect:text
+    has_many :Items
+
+rails g scaffold PositionAction name:string code:string description:text effect:text cost_id:integer
+
+rails g scaffold UnitAction name:string code:string description:text effect:text cost_id:integer
+
+rails g scaffold Cost name:string code:string description:text movement:integer money:integer materials:integer research:integer item_id:integer
+
+rails g scaffold Area name:string code:string description:text label_row:integer label_col:integer stroke:string fill:string
+     has_many :Regions
+
+rails g scaffold Feature name:string code:string description:string
+# ancient, victory point value
+
+rails g scaffold Location name:string location_type_id:integer
+
+rails g scaffold LocationType name:string code:string status:string effect:text
+# Space Station, Monolith, Orbital,
+# Energy Planet, Resource Planet, Materials Planet - colonized => +1, teraformed => +2
+
+rails g scaffold Adjacency name:string
+# N, NE, SE, S, SW, NW
+
+rails g scaffold Facing name:integer
+#  0, 60, 120, 180, 240, 300
